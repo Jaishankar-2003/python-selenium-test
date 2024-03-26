@@ -39,9 +39,9 @@ username_pass.send_keys("admin123")
 driver.find_element(By.XPATH,"//button[normalize-space()='Login']").click()
 
 driver.implicitly_wait(10)
-admin = driver.find_element(By.XPATH,"//span[@class='oxd-text oxd-text--span oxd-main-menu-item--name']")
-use = driver.find_element(By.XPATH,"//span[@class='oxd-topbar-body-nav-tab-item']")
-# users = driver.find_element(By.XPATH,"//a[normalize-space()='Users']")
+driver.find_element(By.XPATH,"//span[@class='oxd-text oxd-text--span oxd-main-menu-item--name']").click()
+driver.find_element(By.XPATH,"//span[normalize-space()='User Management']").click()
+driver.find_element(By.XPATH,"//a[normalize-space()='Users']").click()
 
 # act = ActionChains(driver)
 # act.move_to_element(admin).move_to_element(use).click().perform()
