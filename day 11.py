@@ -18,7 +18,7 @@ driver = webdriver.Chrome()
 # actionchain
 # 1 mouse hover - move_to_element(element)
 # 2 right click - context_click(element)
-
+# 3 double click - double_click(element)
 
 #Date picker
 # ---------------
@@ -26,9 +26,11 @@ driver = webdriver.Chrome()
 # 2 non-standard(customized)
 #url = "https://jqueryui.com/datepicker/"
 #url = "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"
-url = "https://api.jquery.com/contextmenu/"
+#url = "https://api.jquery.com/contextmenu/"
+url = "https://www.w3schools.com/tags/tryit.asp?filename=tryhtml5_ev_ondblclick3"
 driver.get(url)
 driver.maximize_window()
+#--------------------------------------------------------------------------------------------------------------
 
 # username_field = driver.find_element(By.CSS_SELECTOR, "input[placeholder='Username']")
 # username_field.send_keys("Admin")
@@ -53,14 +55,31 @@ driver.maximize_window()
 # # act.move_to_element(admin).move_to_element(use).click().perform()
 #
 # time.sleep(4)
+#-------------------------------------------------------------------------------------------------------------
 
+# # right click
+# driver.implicitly_wait(10)
+# inner = driver.find_element(By.XPATH,"//div[@class='demo code-demo']//iframe")
+# driver.switch_to.frame(inner)
+# actt = driver.find_element(By.XPATH,"//body//div")
+#
+# act = ActionChains(driver)
+# act.context_click(actt).perform()
+#
+# time.sleep(4)
+#------------------------------------------------------------------------------------------------------------------
 
-# right click
-driver.implicitly_wait(10)
-inner = driver.find_element(By.XPATH,"//div[@class='demo code-demo']//iframe")
+#double click
+
+inner = driver.find_element(By.XPATH,"//iframe[@id='iframeResult']")
 driver.switch_to.frame(inner)
-actt = driver.find_element(By.XPATH,"//body//div")
+field1 = driver.find_element(By.XPATH,"//input[@id='field1']")
+field1.click()
+field1.send_keys("welcome")
 
+button = driver.find_element(By.XPATH,"//button[normalize-space()='Copy Text']")
 act = ActionChains(driver)
-act.context_click(actt).perform()
+act.double_click(button).perform()
+
+#----------------------------------------------------------------------------------------------------------------------
 
