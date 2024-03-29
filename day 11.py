@@ -15,7 +15,8 @@ driver = webdriver.Chrome()
 
 # mouse operation
 #
-# actionchain
+# ActionChain
+
 # 1 mouse hover - move_to_element(element)
 # 2 right click - context_click(element)
 # 3 double click - double_click(element)
