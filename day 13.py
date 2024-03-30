@@ -1,4 +1,7 @@
 from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
 # from selenium.webdriver.edge import service
 # from selenium.webdriver.edge.service import Service
 # from selenium.webdriver.chrome.service import Service
@@ -16,7 +19,7 @@ import time
 # from selenium.webdriver.support.ui import WebDriverWait
 import os
 
-driver = webdriver.Chrome()
+# driver = webdriver.Chrome()
 
 # -----------------------------------------------------------------------------------------------------------
 # bootstrap dropdown
@@ -68,12 +71,12 @@ driver = webdriver.Chrome()
 
 # how to handle cookies
 
-url = "https://demo.nopcommerce.com/register?returnUrl=%2F"
-driver.get(url)
-driver.maximize_window()
+# url = "https://demo.nopcommerce.com/register?returnUrl=%2F"
+# driver.get(url)
+# driver.maximize_window()
 
 # capture cookies form the browser   (it contain different attribute like name time value expire date)
-cookie = driver.get_cookies()
+# cookie = driver.get_cookies()
 # print(cookie)
 # print("size of cookie ",len(cookie)) # 3
 
@@ -89,6 +92,32 @@ cookie = driver.get_cookies()
 # print("size of cookie after add one",len(cookie))  # 4
 
 # delete the specific cookie from the browser
-driver.delete_cookie({"name" : "MyCookie","value":"12345"})
-cookie = driver.get_cookies()
-print("size of cookie after delete one",len(cookie))  # 3
+# driver.delete_cookie({"name" : "MyCookie","value":"12345"})
+# cookie = driver.get_cookies()
+# print("size of cookie after delete one",len(cookie))  # 3
+
+# delete all the cookies
+# driver.delete_cookie("cookie")
+# cookie = driver.get_cookies()
+# print("size of cookie after delete one",len(cookie)) #3  the browser not support to delete the delete cookie it remain same
+
+# ---------------------------------------------------------------------------------------------------------------------
+
+# Headless mode  adv : it will run the operation on backend we can use another process , it is very fast in production   dis : we can't see the ui functionality cant analyse the functionality
+
+# HEADLESS TEST RUN THE TEST IN BACK END
+url = "https://demo.nopcommerce.com/register?returnUrl=%2F"
+chromedriver_path = "C:\\Users\\JAI-SHANKAR\\PycharmProjects\\testt\\chromedriver.exe"
+options = webdriver.ChromeOptions()
+options.add_argument('--headless=new')
+service = Service(chromedriver_path)
+driver = webdriver.Chrome(service=service,options=options)
+
+driver.get(url)
+print(driver.title)
+print(driver.current_url)
+driver.close()
+
+# ---------------------------------------------------------------------------------------------------------------------
+
+
