@@ -16,8 +16,8 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 import os
 location = os.getcwd()
-# driver = webdriver.Chrome()
-options = webdriver.EdgeOptions()    #edge browse
+driver = webdriver.Chrome()
+#options = webdriver.EdgeOptions()    #edge browse
 # driver = webdriver.Firefox()    #firefox
 
 # --------------------------------------------------------------------------------------------------------------
@@ -27,19 +27,19 @@ options = webdriver.EdgeOptions()    #edge browse
 # url = "https://text-compare.com/"
 # url = "https://file-examples.com/index.php/sample-documents-download/sample-doc-download/"
 # url = "https://file-examples.com/index.php/sample-documents-download/sample-pdf-download/"
-# url = "https://www.sitepoint.com/mime-types-complete-list/"
-#driver.get(url)
+url = "https://www.sitepoint.com/mime-types-complete-list/"
+driver.get(url)
 # ---------------------------------------------------------------------------------
 # edge_run
 # Optional: Set Edge options if needed
-service = service.Service(r'C:\Users\JAI-SHANKAR\Downloads\edge drive\msedgedriver.exe')  # Replace with your Edge driver path
-driver = webdriver.Edge(service=service, options=options)
-# url = "https://file-examples.com/index.php/sample-documents-download/sample-pdf-download/"
-url = "https://file-examples.com/index.php/sample-documents-download/sample-doc-download/"
-driver.get(url)
-driver.implicitly_wait(10)
-driver.find_element(By.XPATH,"//tbody/tr[1]/td[5]/a[1]").click()  #document
-# driver_path = r"C:\Users\JAI-SHANKAR\Downloads\edge drive\msedgedriver.exe"
+# service = service.Service(r'E:\edge drive\msedgedriver.exe')  # Replace with your Edge driver path
+# driver = webdriver.Edge(service=service, options=options)
+# # url = "https://file-examples.com/index.php/sample-documents-download/sample-pdf-download/"
+# url = "https://file-examples.com/index.php/sample-documents-download/sample-doc-download/"
+# driver.get(url)
+# driver.implicitly_wait(10)
+# driver.find_element(By.XPATH,"//tbody/tr[1]/td[5]/a[1]").click()  #document
+# # driver_path = r"C:\Users\JAI-SHANKAR\Downloads\edge drive\msedgedriver.exe"
 # service = Service(executable_path=driver_path)
 # driver = webdriver.Edge(service=service)
 # ----------------------------------------------------------------------------------
@@ -86,11 +86,12 @@ driver.maximize_window()
 
 # HOW TO DOWNLOAD FILE USING AUTOMATION
 
-# def chrome_setup():
-#     # download file in desire location
-#     driver.implicitly_wait(10)
-#     preferences={"download.default_directory":location,"plugins.always_open_pdf_externally": True}
-#     return driver
+def chrome_setup():
+    # download file in desire location
+    driver.implicitly_wait(10)
+    #preferences={"download.default_directory":location,"plugins.always_open_pdf_externally": True}
+    preferences = {"download.default_directory": location}
+    return driver
 # my_drive = chrome_setup()
 
 def edge_setup():
