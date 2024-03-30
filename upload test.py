@@ -35,7 +35,4 @@ raw.send_keys("C:\\Users\\JAI-SHANKAR\\Pictures\\apple.png")
 # raw.click()
 # raw.send_keys("C:\\Users\\JAI-SHANKAR\\Pictures\\apple.png")
 
-
-#driver.find_element(By.XPATH,"//button[@class='oxd-icon-button oxd-icon-button--solid-main employee-image-action']").send_keys("C:\\Users\\JAI-SHANKAR\
-#Pictures\\apple.png")
 time.sleep(6)

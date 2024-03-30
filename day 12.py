@@ -17,7 +17,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 import os
 location = os.getcwd()
 driver = webdriver.Chrome()
-#options = webdriver.EdgeOptions()    #edge browse
+# options = webdriver.EdgeOptions()    #edge browse
 # driver = webdriver.Firefox()    #firefox
 
 # --------------------------------------------------------------------------------------------------------------
@@ -89,12 +89,12 @@ driver.maximize_window()
 def chrome_setup():
     # download file in desire location
     driver.implicitly_wait(10)
-    #preferences={"download.default_directory":location,"plugins.always_open_pdf_externally": True}
+    # preferences={"download.default_directory":location,"plugins.always_open_pdf_externally": True}
     preferences = {"download.default_directory": location}
     return driver
 # my_drive = chrome_setup()
 
-def edge_setup():
+ def edge_setup():
     # preferences = {"download.default_directory": location,"plugins.always_open_pdf_externally": True}
     preferences = {"download.default_directory": location}
     return driver
