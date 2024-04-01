@@ -1,4 +1,5 @@
 from selenium import webdriver
+from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support.select import Select
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
@@ -41,11 +42,26 @@ for passengers in passenger:
 driver.find_element(By.XPATH,"//input[@id='traveltype_2']").click()
 driver.find_element(By.XPATH,"//input[@id='fromcity']").send_keys("mdu")
 driver.find_element(By.XPATH,"//input[@id='tocity']").send_keys("chennai")
-date_pic_mont = Select(driver.find_element(By.XPATH,"//select[@aria-label='Select month']"))
-date_pic_mont.select_by_visible_text("Jul")
-date_pic_yea = Select(driver.find_element(By.XPATH,"//select[@aria-label='Select year']"))
-date_pic_yea.select_by_visible_text("2023")
-dat = driver.find_element(By.XPATH,"//a[normalize-space()='10']")
-dat.click()
 
-time.sleep(5)
+try:
+    # Check if the element is visible before interacting with it
+    select_month = WebDriverWait(driver, 10).until(
+        EC.visibility_of_element_located((By.XPATH, "//select[@aria-label='Select month']")))
+
+    # If the element is visible, select the desired option
+    select_month.select_by_visible_text("Apr")
+
+except TimeoutException:
+    # Handle the case where the element is not visible
+    print("Element 'Apr' is not currently visible")
+
+except Exception as e:
+    # Handle other potential exceptions
+    print(f"An error occurred: {e}")
+
+# date_pic_mont = Select(driver.find_element(By.XPATH,"//select[@aria-label='Select month']"))
+# date_pic_mont.select_by_visible_text("Apr")
+# date_pic_yea = Select(driver.find_element(By.XPATH,"//select[@aria-label='Select year']"))
+# date_pic_yea.select_by_visible_text("2024")
+# dat = driver.find_element(By.XPATH,"//a[normalize-space()='10']")
+# dat.click()
