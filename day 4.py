@@ -32,7 +32,7 @@ driver.maximize_window()
 
 #following
 # txt_msg = driver.find_elements(By.XPATH,"//a[normalize-space()='Engineers India']/ancestor::tr/following::*")
-# print("num of decendent",len(txt_msg)) #1328
+# print("num of decendent",len(txt_msg)) #1328 !222
 
 #following-sibling
 # txt_msg = driver.find_elements(By.XPATH,"//a[normalize-space()='Engineers India']/ancestor::tr/following-sibling::*")
