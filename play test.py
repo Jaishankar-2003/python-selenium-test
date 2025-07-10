@@ -6,3 +6,4 @@ with sync_playwright() as p:
     page.goto("https://testbook.com/")
     print(page.title())
     browser.close()
+    #open brower and close by play
